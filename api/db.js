@@ -4,19 +4,26 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json', {
     defaultValue: {
         movies: [
-            { title: 'asfd1', imageUrl: '', imdbRating: 4.5, genre: 'Comedy' },
-            { title: 'asfd2', imageUrl: '', imdbRating: 2.5, genre: 'Fantasy' },
-            { title: 'asfd3', imageUrl: '', imdbRating: 5.5, genre: 'Crime' },
-            { title: 'asfd4', imageUrl: '', imdbRating: 1.5, genre: 'Drama' },
-            { title: 'asfd5', imageUrl: '', imdbRating: 2.5, genre: 'Adventure' },
-            
+            { id: 1, title: 'asfd1', imageUrl: '', imdbRating: 4.5, genre: 'Comedy' },
+            { id: 2, title: 'asfd2', imageUrl: '', imdbRating: 2.5, genre: 'Fantasy' },
+            { id: 3, title: 'asfd3', imageUrl: '', imdbRating: 5.5, genre: 'Crime' },
+            { id: 4, title: 'asfd4', imageUrl: '', imdbRating: 1.5, genre: 'Drama' },
+            { id: 5, title: 'asfd5', imageUrl: '', imdbRating: 2.5, genre: 'Adventure' },
         ],
-        recentMovies: [
+        users: [
+            {
+                id: 1, username: 'test123', 
+                password: '$2b$10$uCxD4SqlR0AiMWAUYAVU3eYe05R.qUWzTG3ZvpMDGln0fopJFZlM2', 
+                recentMovies: [
 
+                ],
+                recommendedMovies: [
+                    { id: 1, title: 'asfd3', imageUrl: '', imdbRating: 5.5, genre: 'Crime' },
+                    { id: 2, title: 'asfd4', imageUrl: '', imdbRating: 1.5, genre: 'Drama' },
+                    { id: 3, title: 'asfd5', imageUrl: '', imdbRating: 2.5, genre: 'Adventure' },
+                ]
+            }
         ],
-        recommendedMovies: [
-
-        ]
     }
 });
 const db = low(adapter)
@@ -31,3 +38,16 @@ module.exports = db;
 // db.get('posts')
 //   .push({ id: 1, title: 'lowdb is awesome'})
 //   .write()
+
+// const bcrypt = require('bcrypt');
+// let hash;
+// bcrypt.hash('password123', 10).then( hashh => {
+//     hash = hashh;
+//     console.log(hash)
+//     bcrypt.compare('password123', hash).then(function(result) {
+//         console.log(result)
+//      });
+// });
+
+// const userObj = db.get('users').find({username: 'test123'}).value();
+// console.log(userObj)

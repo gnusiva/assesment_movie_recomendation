@@ -1,36 +1,70 @@
 {
   "movies": [
     {
-      "title": "asfd",
+      "id": 1,
+      "title": "asfd1",
       "imageUrl": "",
       "imdbRating": 4.5,
-      "genre": "comedy"
+      "genre": "Comedy"
     },
     {
-      "title": "asfd",
+      "id": 2,
+      "title": "asfd2",
       "imageUrl": "",
-      "imdbRating": 4.5,
-      "genre": "comedy"
+      "imdbRating": 2.5,
+      "genre": "Fantasy"
     },
     {
-      "title": "asfd",
+      "id": 3,
+      "title": "asfd3",
       "imageUrl": "",
-      "imdbRating": 4.5,
-      "genre": "comedy"
+      "imdbRating": 5.5,
+      "genre": "Crime"
     },
     {
-      "title": "asfd",
+      "id": 4,
+      "title": "asfd4",
       "imageUrl": "",
-      "imdbRating": 4.5,
-      "genre": "comedy"
+      "imdbRating": 1.5,
+      "genre": "Drama"
     },
     {
-      "title": "asfd",
+      "id": 5,
+      "title": "asfd5",
       "imageUrl": "",
-      "imdbRating": 4.5,
-      "genre": "comedy"
+      "imdbRating": 2.5,
+      "genre": "Adventure"
     }
   ],
-  "recentMovies": [],
-  "recommendedMovies": []
+  "users": [
+    {
+      "id": 1,
+      "username": "test123",
+      "password": "$2b$10$uCxD4SqlR0AiMWAUYAVU3eYe05R.qUWzTG3ZvpMDGln0fopJFZlM2",
+      "recentMovies": [],
+      "recommendedMovies": [
+        {
+          "id": 1,
+          "title": "asfd3",
+          "imageUrl": "",
+          "imdbRating": 5.5,
+          "genre": "Crime"
+        },
+        {
+          "id": 2,
+          "title": "asfd4",
+          "imageUrl": "",
+          "imdbRating": 1.5,
+          "genre": "Drama"
+        },
+        {
+          "id": 3,
+          "title": "asfd5",
+          "imageUrl": "",
+          "imdbRating": 2.5,
+          "genre": "Adventure"
+        }
+      ]
+    }
+  ]
 }

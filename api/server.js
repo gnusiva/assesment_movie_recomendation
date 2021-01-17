@@ -7,11 +7,14 @@ const username = 'test123';
 const password = 'password123';
 const token = jwt.sign({ username }, signingSecret);
 const db = require('./db');
+const bcrypt = require('bcrypt');
 
 app.use(bodyParser.json());
 
-app.post('/login', (req, res) => {
-  if ( req.body.username === username && req.body.password === password ) {
+app.post('/login', async (req, res) => {
+  const userObj = db.get('users').find({username: req.body.username}).value();
+  const isPasswordCorrect = await bcrypt.compare(req.body.password, userObj.password);
+  if ( isPasswordCorrect ) {
     res.send({token});
   } else {
     res.status(401);
@@ -37,11 +40,28 @@ app.use(function(req, res, next) {
 });
 
 
-app.get('/allmovies', (req, res) => {
-    const movies = db.get('movies').value();
-    res.send(movies)
+app.get('/all-movies', (req, res) => {
+  const movies = db.get('movies').value();
+  res.send(movies)
 });
-    
+  
+app.get('/recent-movies', (req, res) => {
+  const movies = db.get('recentMovies').value();
+  res.send(movies)
+});
+  
+app.get('/recommended-movies', (req, res) => {
+  const movies = db.get('recommendedMovies').value();
+  res.send(movies)
+});
+
+app.post('/add-recent-movies', (req, res) => {
+  db.get('recentMovies')
+  .push({ id: 1, title: 'lowdb is awesome'})
+  .write()
+  res.body
+});
+  
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
