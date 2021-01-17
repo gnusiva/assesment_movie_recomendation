@@ -46,20 +46,25 @@ app.get('/all-movies', (req, res) => {
 });
   
 app.get('/recent-movies', (req, res) => {
-  const movies = db.get('recentMovies').value();
+  const token = jwt.verify(req.headers.authorization, signingSecret);
+  const movies = db.get('users').find({username: token.username}).value().recentMovies;
   res.send(movies)
 });
   
 app.get('/recommended-movies', (req, res) => {
-  const movies = db.get('recommendedMovies').value();
+  const token = jwt.verify(req.headers.authorization, signingSecret);
+  const movies = db.get('users').find({username: token.username}).value().recommendedMovies;
   res.send(movies)
 });
 
-app.post('/add-recent-movies', (req, res) => {
-  db.get('recentMovies')
-  .push({ id: 1, title: 'lowdb is awesome'})
-  .write()
-  res.body
+app.post('/add-recent-movie', (req, res) => {
+  const token = jwt.verify(req.headers.authorization, signingSecret);
+  db.get('users')
+  .find({username: token.username})
+  .get('recentMovies')
+  .push(req.body)
+  .write();
+  res.send();
 });
   
 

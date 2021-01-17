@@ -41,7 +41,22 @@
       "id": 1,
       "username": "test123",
       "password": "$2b$10$uCxD4SqlR0AiMWAUYAVU3eYe05R.qUWzTG3ZvpMDGln0fopJFZlM2",
-      "recentMovies": [],
+      "recentMovies": [
+        {
+          "id": 1,
+          "title": "asfd3",
+          "imageUrl": "",
+          "imdbRating": 5.5,
+          "genre": "Crime"
+        },
+        {
+          "id": 121,
+          "title": "asfd3",
+          "imageUrl": "",
+          "imdbRating": 5.5,
+          "genre": "Crime"
+        }
+      ],
       "recommendedMovies": [
         {
           "id": 1,
