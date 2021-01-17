@@ -29,6 +29,7 @@ app.use(function(req, res, next) {
     try {
       var token = jwt.verify(req.headers.authorization, signingSecret);
       if ( token.username === username ) {
+        req.token = token;
         next();
       } else {
         return res.status(401).json({msg: 'Invalid Token'})
@@ -46,19 +47,19 @@ app.get('/all-movies', (req, res) => {
 });
   
 app.get('/recent-movies', (req, res) => {
-  const token = jwt.verify(req.headers.authorization, signingSecret);
+  const token = req.token; 
   const movies = db.get('users').find({username: token.username}).value().recentMovies;
   res.send(movies)
 });
   
 app.get('/recommended-movies', (req, res) => {
-  const token = jwt.verify(req.headers.authorization, signingSecret);
+  const token = req.token;
   const movies = db.get('users').find({username: token.username}).value().recommendedMovies;
   res.send(movies)
 });
 
 app.post('/add-recent-movie', (req, res) => {
-  const token = jwt.verify(req.headers.authorization, signingSecret);
+  const token = req.token;
   db.get('users')
   .find({username: token.username})
   .get('recentMovies')
