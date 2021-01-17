@@ -1,0 +1,36 @@
+{
+  "movies": [
+    {
+      "title": "asfd",
+      "imageUrl": "",
+      "imdbRating": 4.5,
+      "genre": "comedy"
+    },
+    {
+      "title": "asfd",
+      "imageUrl": "",
+      "imdbRating": 4.5,
+      "genre": "comedy"
+    },
+    {
+      "title": "asfd",
+      "imageUrl": "",
+      "imdbRating": 4.5,
+      "genre": "comedy"
+    },
+    {
+      "title": "asfd",
+      "imageUrl": "",
+      "imdbRating": 4.5,
+      "genre": "comedy"
+    },
+    {
+      "title": "asfd",
+      "imageUrl": "",
+      "imdbRating": 4.5,
+      "genre": "comedy"
+    }
+  ],
+  "recentMovies": [],
+  "recommendedMovies": []
+}
