@@ -8,9 +8,10 @@ const password = 'password123';
 const token = jwt.sign({ username }, signingSecret);
 const db = require('./db');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 
 app.use(bodyParser.json());
-
+app.use(cors());
 app.post('/login', async (req, res) => {
   const userObj = db.get('users').find({username: req.body.username}).value();
   const isPasswordCorrect = await bcrypt.compare(req.body.password, userObj.password);
