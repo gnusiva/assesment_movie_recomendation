@@ -1,0 +1,8 @@
+
+<div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+    <input type="text" placeholder="Username" class="mb-3" [(ngModel)]="username">
+    <input type="password" placeholder="Password" class="mb-3" [(ngModel)]="password">
+    <div class="mb-3" *ngIf="isLoading"> Loading ... </div>
+    <div class="mb-3 text-danger" *ngIf="isError"> Login Failed </div>
+    <button class="btn btn-primary" (click)="login()">Login</button>
+</div>

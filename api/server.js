@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.post('/login', async (req, res) => {
   const userObj = db.get('users').find({username: req.body.username}).value();
+  if ( !userObj ) { res.status(401); res.send(); }
   const isPasswordCorrect = await bcrypt.compare(req.body.password, userObj.password);
   if ( isPasswordCorrect ) {
     res.send({token});
