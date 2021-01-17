@@ -1,0 +1,47 @@
+
+============================================================
+
+curl --location --request POST 'localhost:3000/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "test123",
+    "password": "password123"
+}'
+
+============================================================
+
+curl --location --request GET 'localhost:3000/all-movies' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxMjMiLCJpYXQiOjE2MTA4OTI1MDd9.dqRyw8AZa8BdvtAyrkB4nmcms-5uvM2NegNe__OWtEQ'
+
+============================================================
+
+curl --location --request GET 'localhost:3000/recent-movies' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxMjMiLCJpYXQiOjE2MTA4OTI1MDd9.dqRyw8AZa8BdvtAyrkB4nmcms-5uvM2NegNe__OWtEQ'
+
+============================================================
+
+curl --location --request POST 'localhost:3000/add-recent-movie' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxMjMiLCJpYXQiOjE2MTA4OTI1MDd9.dqRyw8AZa8BdvtAyrkB4nmcms-5uvM2NegNe__OWtEQ' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "id": 121,
+        "title": "asfd3",
+        "imageUrl": "",
+        "imdbRating": 5.5,
+        "genre": "Crime"
+    }'
+
+===========================================================
+
+curl --location --request GET 'localhost:3000/recommended-movies' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxMjMiLCJpYXQiOjE2MTA4OTI1MDd9.dqRyw8AZa8BdvtAyrkB4nmcms-5uvM2NegNe__OWtEQ' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "id": 121,
+        "title": "asfd3",
+        "imageUrl": "",
+        "imdbRating": 5.5,
+        "genre": "Crime"
+    }'
+
+==========================================================
