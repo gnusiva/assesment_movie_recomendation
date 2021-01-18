@@ -50,18 +50,11 @@
           "genre": "Crime"
         },
         {
-          "id": 2,
-          "title": "asfd2",
+          "id": 5,
+          "title": "asfd5",
           "imageUrl": "",
           "imdbRating": 2.5,
-          "genre": "Fantasy"
-        },
-        {
-          "id": 4,
-          "title": "asfd4",
-          "imageUrl": "",
-          "imdbRating": 1.5,
-          "genre": "Drama"
+          "genre": "Adventure"
         }
       ],
       "recommendedMovies": [
