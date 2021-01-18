@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+
+<div class="p-3 d-flex flex-column" *ngIf="!isLoading">
+    <div>
+        <h5>Recent Movies ( <u class="cursor-pointer" (click)="clearRecentMovies()">Clear</u> ) </h5>
+        <ul>
+            <li *ngFor="let movie of recentMovies">{{movie | json}}</li>
+        </ul>
+    </div>
+    <div>
+        <h5>Recommended Movies</h5>
+        <ul>
+            <li *ngFor="let movie of recommendedMovies" class="movie cursor-pointer">{{movie | json}}</li>
+        </ul>
+    </div>
+    <div>
+        <h5>All Movies</h5>
+        <ul>
+            <li *ngFor="let movie of allMovies" class="movie cursor-pointer" (click)="setRecentMovie(movie)">{{movie | json}}</li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="isLoading" class="d-flex h-100 w-100 align-items-center justify-content-center">
+    Loading ...
+</div>

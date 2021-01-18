@@ -43,18 +43,25 @@
       "password": "$2b$10$uCxD4SqlR0AiMWAUYAVU3eYe05R.qUWzTG3ZvpMDGln0fopJFZlM2",
       "recentMovies": [
         {
-          "id": 1,
+          "id": 3,
           "title": "asfd3",
           "imageUrl": "",
           "imdbRating": 5.5,
           "genre": "Crime"
         },
         {
-          "id": 121,
-          "title": "asfd3",
+          "id": 2,
+          "title": "asfd2",
           "imageUrl": "",
-          "imdbRating": 5.5,
-          "genre": "Crime"
+          "imdbRating": 2.5,
+          "genre": "Fantasy"
+        },
+        {
+          "id": 4,
+          "title": "asfd4",
+          "imageUrl": "",
+          "imdbRating": 1.5,
+          "genre": "Drama"
         }
       ],
       "recommendedMovies": [

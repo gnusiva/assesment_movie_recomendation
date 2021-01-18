@@ -53,6 +53,12 @@ app.get('/recent-movies', (req, res) => {
   const movies = db.get('users').find({username: token.username}).value().recentMovies;
   res.send(movies)
 });
+
+app.get('/clear-recent-movies', (req, res) => {
+  const token = req.token; 
+  const movies = db.get('users').find({username: token.username}).get('recentMovies').remove( (item) => true).write();
+  res.send(movies)
+});
   
 app.get('/recommended-movies', (req, res) => {
   const token = req.token;
