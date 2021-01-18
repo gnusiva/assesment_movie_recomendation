@@ -23,7 +23,7 @@ app.post('/login', async (req, res) => {
     res.send();
   }
 });
-
+app.use(express.static('public'))
 app.use(function(req, res, next) {
   if (!req.headers.authorization) {
     return res.status(403).json({ error: 'No credentials sent!' });
