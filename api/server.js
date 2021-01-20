@@ -13,15 +13,18 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors());
 app.post('/login', async (req, res) => {
-  const userObj = db.get('users').find({username: req.body.username}).value();
-  if ( !userObj ) { res.status(401); res.send(); }
-  const isPasswordCorrect = await bcrypt.compare(req.body.password, userObj.password);
-  if ( isPasswordCorrect ) {
-    res.send({token});
-  } else {
-    res.status(401);
-    res.send();
-  }
+  setTimeout( async () => {
+    const userObj = db.get('users').find({username: req.body.username}).value();
+    if ( !userObj ) { res.status(401); res.send(); return; }
+    const isPasswordCorrect = await bcrypt.compare(req.body.password, userObj.password);
+    if ( isPasswordCorrect ) {
+      res.send({token});
+    } else {
+      res.status(401);
+      res.send();
+    } 
+  }, 3000);
+  
 });
 app.use(express.static('public'))
 app.use(function(req, res, next) {
